@@ -1,8 +1,4 @@
 <?php
-
-namespace App\Controller;
-
-<?php
 namespace App\Controller;
 use App\Entity\User;
 use App\Form\RegistrationType;
@@ -50,7 +46,7 @@ class SecurityController extends AbstractController
     $lastUsername = $authenticationUtils->getLastUsername();
         
         return $this->render('security/login.html.twig',['lastUsername'=>$lastUsername,
-        'error' => $error]);
+                                                        'error' => $error]);
     }
 
 /**

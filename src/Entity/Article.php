@@ -19,27 +19,27 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
-     * * @Assert\Length(
- * min = 5,
- * max = 50,
- * minMessage = "Le nom d'un article doit comporter au moins {{ limit }} caractères",
- * maxMessage = "Le nom d'un article doit comporter au plus {{ limit }} caractères"
- * )
- */
-     
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 50,
+     *      minMessage = "Le nom d'un article doit comporter au moins {{ limit }} caractères",
+     *      maxMessage = "Le nom d'un article doit comporter au plus {{ limit }} caractères"
+     * )
+     */
     private $nom;
 
     /**
-* @ORM\Column(type="decimal", precision=10, scale=0)
- * @Assert\NotEqualTo(
- * value = 0,
- * message = "Le prix d’un article ne doit pas être égal à 0 "
- * )
- */
+     * @ORM\Column(type="decimal", precision=10, scale=0)
+     * * @Assert\NotEqualTo(
+     *     value = 0,
+     *     message = "Le prix d’un article ne doit pas être égal à  0 "
+     * )
+     */
     private $prix;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="articles")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="articles")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $category;
 
@@ -83,4 +83,6 @@ class Article
 
         return $this;
     }
+
+    
 }
